@@ -1,5 +1,5 @@
-// export const getPaginate = (page, size) =>{
-//     const limit = size? +size :3;
-//     const offset = page? page * limit : 0;
-//     return {limit, offset};
-// }
+export const getPaginate = (page: number, size:number) =>{
+    const limit = size? +size :3;
+    const offset = page? page * limit : 0;
+    return {limit, offset};
+}

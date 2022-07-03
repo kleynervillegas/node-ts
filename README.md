@@ -9,3 +9,5 @@
 # express validado joi validator
 # npm i mongoose-paginate-v2
 # tsc --init# node-ts
+# npm i typescript -D
+# npm i ts-node -D
