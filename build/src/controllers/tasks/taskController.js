@@ -58,7 +58,6 @@ class TaskContrller {
     }
     getOne(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(id);
             try {
                 const task = yield Task_1.default.findById(id);
                 if (!task)

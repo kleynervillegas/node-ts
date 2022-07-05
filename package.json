@@ -7,13 +7,16 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.2",
     "mongoose-paginate-v2": "^1.6.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "tedious": "^14.6.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/morgan": "^1.9.3",
     "nodemon": "^2.0.18",
     "ts-node": "^10.8.2",
@@ -22,7 +25,7 @@
   "scripts": {
     "ts:node": "ts-node src/server.ts",
     "start": "tsc && nodemon /buil/src/server.js",
-    "dev" : "nodemon"
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",

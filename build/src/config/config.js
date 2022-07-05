@@ -5,4 +5,5 @@ const dotenv_1 = require("dotenv");
 exports.default = {
     mongodbURL: process.env.MONGODB_URI || 'mongodb://localhost:27017/back-ionic',
     port: process.env.PORT,
+    jwtSecret: process.env.jwtSecret || "miclaveultrasecreta123*"
 };

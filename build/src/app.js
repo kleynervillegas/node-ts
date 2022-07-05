@@ -9,6 +9,8 @@ const config_1 = __importDefault(require("./config/config"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const authentication_1 = require("./Middleware/authentication/authentication");
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -31,13 +33,25 @@ class Server {
         this.app.use((0, cors_1.default)());
         // parse this.application/json
         this.app.use(body_parser_1.default.json());
+        this.app.set('jwtSecret', config_1.default.jwtSecret);
         this.app.set('port', config_1.default.port || 3000);
     }
     routes() {
         this.app.get('/', (req, res) => {
             res.json({ message: "hola" });
         });
-        this.app.use('/api/tasks', new tasks_routes_1.default().router());
+        const payload = {
+            check: true,
+            user: {
+                name: 'kleyner villegas',
+                numberid: '20096862',
+            }
+        };
+        const token = jsonwebtoken_1.default.sign(payload, this.app.get('jwtSecret'), {
+            expiresIn: 1440
+        });
+        console.log(token);
+        this.app.use('/api/tasks', authentication_1.authentication, new tasks_routes_1.default().router());
     }
 }
 exports.default = new Server().app;

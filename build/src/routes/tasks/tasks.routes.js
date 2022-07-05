@@ -31,7 +31,6 @@ class TasksRoutes {
             });
         }));
         router.get('/:id', (req, res) => __awaiter(this, void 0, void 0, function* () {
-            console.log(req, res);
             const { id } = req.params;
             yield taskContrller.getOne(id).then(data => {
                 res.status(200).json(data);

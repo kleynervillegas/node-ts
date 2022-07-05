@@ -11,3 +11,6 @@
 # tsc --init# node-ts
 # npm i typescript -D
 # npm i ts-node -D
+#  npm install --save express jsonwebtoken
+# npm i --save-dev @types/jsonwebtoken -D
+# npm i tedious
