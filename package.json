@@ -11,6 +11,9 @@
     "mongoose": "^6.4.2",
     "mongoose-paginate-v2": "^1.6.3",
     "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.2",
+    "sqlite3": "^5.0.8",
     "tedious": "^14.6.1"
   },
   "devDependencies": {

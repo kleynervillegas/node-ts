@@ -35,7 +35,7 @@ class Server {
         // parse this.application/json
         this.app.use(bodyParser.json());
         this.app.set('jwtSecret', config.jwtSecret);      
-        this.app.set('port', config.port || 3000);
+        this.app.set('port', config.port);
     }
 
     public routes(): void {

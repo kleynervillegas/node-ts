@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const config_1 = __importDefault(require("../config/config"));
+const { Sequelize } = require('sequelize');
 (() => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // opcional
@@ -23,6 +24,14 @@ const config_1 = __importDefault(require("../config/config"));
         // });
         const db = yield mongoose_1.default.connect(config_1.default.mongodbURL);
         console.log('connect sucess bd', db.connection.name);
+        //  Option 3: Passing parameters separately (other dialects)
+        const sequelize = new Sequelize(config_1.default.NAME_DATA_BASE, config_1.default.USER_NAME, config_1.default.PASSWORD, {
+            host: config_1.default.SEQUELIZE_URI,
+            dialect: config_1.default.TIPY_CONNECTION,
+            dialectModule: require('mysql2'),
+        });
+        yield sequelize.authenticate();
+        console.log('connect sucess bd for sequelize', sequelize.getNameDataBase);
     }
     catch (error) {
         console.log(error);
